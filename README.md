@@ -10,7 +10,7 @@ This is a ComfyUI custom node implementation of **PersonaLive: Expressive Portra
 **Original Repository**: [GVCLab/PersonaLive](https://github.com/GVCLab/PersonaLive)  
 **Paper**: [ArXiv 2512.11253](https://arxiv.org/abs/2512.11253)
 
-We deeply appreciate the authors **Zhiyuan Li, Chi-Man Pun, Chen Fang, Jue Wang,** and **Xiaodong Cun** for their amazing work and for sharing their code.
+I deeply appreciate the authors **Zhiyuan Li, Chi-Man Pun, Chen Fang, Jue Wang,** and **Xiaodong Cun** for their amazing work and for sharing their code.
 
 ---
 
@@ -19,7 +19,7 @@ We deeply appreciate the authors **Zhiyuan Li, Chi-Man Pun, Chen Fang, Jue Wang,
 1.  **Clone this repository** into your `ComfyUI/custom_nodes/` directory:
     ```bash
     cd ComfyUI/custom_nodes/
-    git clone https://github.com/YOUR_USERNAME/ComfyUI-PersonaLive.git
+    git clone https://github.com/okdalto/ComfyUI-PersonaLive
     cd ComfyUI-PersonaLive
     pip install -r requirements.txt
     ```
