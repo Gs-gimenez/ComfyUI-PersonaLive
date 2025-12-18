@@ -5,39 +5,6 @@
   "last_link_id": 102,
   "nodes": [
     {
-      "id": 36,
-      "type": "PersonaLiveCheckpointLoader",
-      "pos": [
-        1399.5434479952012,
-        172.95307632587838
-      ],
-      "size": [
-        274.4449700792469,
-        58
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "pipe",
-          "type": "PERSONALIVE_PIPE",
-          "links": [
-            98
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "GVCLab/PersonaLive",
-        "ver": "2b727a7a80fdd909a2c3cca8ed7f9611ec4e23fc",
-        "Node name for S&R": "PersonaLiveCheckpointLoader"
-      },
-      "widgets_values": [
-        "persona_live"
-      ]
-    },
-    {
       "id": 49,
       "type": "ResizeAndPadImage",
       "pos": [
@@ -77,6 +44,147 @@
         512,
         "white",
         "lanczos"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "PreviewImage",
+      "pos": [
+        2016.2111844906624,
+        271.2420963042158
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 101
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.4.0",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "LoadImage",
+      "pos": [
+        1133.593283383129,
+        291.47552892799837
+      ],
+      "size": [
+        222.798828125,
+        314.00000000000006
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            87
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.4.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pasted/image (1).png",
+        "image"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "LoadImage",
+      "pos": [
+        1393.483820619868,
+        481.9354712301529
+      ],
+      "size": [
+        282.798828125,
+        314.00000000000006
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            102
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.4.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pasted/image (2).png",
+        "image"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "PersonaLiveCheckpointLoader",
+      "pos": [
+        1399.5434479952012,
+        172.95307632587838
+      ],
+      "size": [
+        274.4449700792469,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "PERSONALIVE_PIPE",
+          "links": [
+            98
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "GVCLab/PersonaLive",
+        "ver": "2b727a7a80fdd909a2c3cca8ed7f9611ec4e23fc",
+        "Node name for S&R": "PersonaLiveCheckpointLoader"
+      },
+      "widgets_values": [
+        "persona_live"
       ]
     },
     {
@@ -127,118 +235,9 @@
       "widgets_values": [
         512,
         512,
-        4,
-        1.1,
-        793884710695881,
-        "randomize"
-      ]
-    },
-    {
-      "id": 38,
-      "type": "PreviewImage",
-      "pos": [
-        2016.2111844906624,
-        271.2420963042158
-      ],
-      "size": [
-        210,
-        258
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 101
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.4.0",
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 15,
-      "type": "LoadImage",
-      "pos": [
-        1133.593283383129,
-        291.47552892799837
-      ],
-      "size": [
-        222.798828125,
-        314.00000000000006
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            87
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.4.0",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "pasted/image (1).png",
-        "image"
-      ]
-    },
-    {
-      "id": 50,
-      "type": "LoadImage",
-      "pos": [
-        1393.483820619868,
-        481.9354712301529
-      ],
-      "size": [
-        282.798828125,
-        314.00000000000006
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            102
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.4.0",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "pasted/image (2).png",
-        "image"
+        1,
+        1,
+        793884710695881
       ]
     }
   ],
@@ -288,14 +287,14 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.116781577942555,
+      "scale": 1.0152559799477774,
       "offset": [
-        -846.8312454828388,
-        -32.59540125457555
+        -818.5836790846603,
+        -10.901348030421117
       ]
     },
-    "workflowRendererVersion": "LG",
-    "frontendVersion": "1.34.9"
+    "frontendVersion": "1.34.9",
+    "workflowRendererVersion": "LG"
   },
   "version": 0.4
 }

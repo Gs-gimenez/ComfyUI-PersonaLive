@@ -25,23 +25,46 @@ I deeply appreciate the authors **Zhiyuan Li, Chi-Man Pun, Chen Fang, Jue Wang,*
     ```
 
 2.  **Model Setup**:
-    Create a folder named `persona_live` inside your `ComfyUI/models/` directory.
     
-    Structure:
+    **Option 1: Automatic Download (Recommended)**
+    
+    Models will be automatically downloaded from Hugging Face when you first use the `PersonaLiveCheckpointLoader` node. The node will:
+    - Detect missing models in your selected directory
+    - Download required models (~15-20GB total):
+      - `lambdalabs/sd-image-variations-diffusers` (Base Model)
+      - `stabilityai/sd-vae-ft-mse` (VAE)
+      - `huaichang/PersonaLive` (PersonaLive Weights)
+    - Organize them into the correct structure automatically
+    
+    > [!NOTE]
+    > The first download will take some time depending on your internet speed. Models are cached locally, so subsequent loads will be instant.
+    
+    **Option 2: Manual Download**
+    
+    If you prefer to download models manually or have connectivity issues:
+    
+    Create a folder named `persona_live` inside your `ComfyUI/models/` directory with the following structure:
     ```
     ComfyUI/models/
     └── persona_live/
         ├── sd-image-variations-diffusers/  <-- Base Model
         ├── sd-vae-ft-mse/                  <-- VAE
-        └── personalive/                    <-- PersonaLive Weights (.pth files)
+        └── persona_live/                   <-- PersonaLive Repository
+            └── pretrained_weights/         <-- .pth files location
+                └── personalive/            <-- .pth files location    
+                    ├── denoising_unet.pth
+                    ├── motion_encoder.pth
+                    ├── motion_extractor.pth
+                    ├── pose_guider.pth
+                    ├── reference_unet.pth
+                    └── temporal_module.pth
     ```
-
+    
     - **Download Base Models**:
         - [sd-image-variations-diffusers](https://huggingface.co/lambdalabs/sd-image-variations-diffusers)
         - [sd-vae-ft-mse](https://huggingface.co/stabilityai/sd-vae-ft-mse)
     - **Download PersonaLive Weights**:
-        - Get them from the [Hugging Face repo](https://huggingface.co/huaichang/PersonaLive) or other links provided in the original `README`.
-        - Place the `.pth` files (`denoising_unet.pth`, `motion_encoder.pth`, etc.) inside the `models/persona_live/personalive/` folder.
+        - Clone or download the entire repository from [Hugging Face](https://huggingface.co/huaichang/PersonaLive)
 
 ## 🚀 Usage
 

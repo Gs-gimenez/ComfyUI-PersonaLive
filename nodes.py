@@ -8,6 +8,7 @@ from diffusers import AutoencoderKL
 from transformers import CLIPVisionModelWithProjection
 import mediapipe as mp
 import folder_paths
+from huggingface_hub import snapshot_download
 
 # Add current directory to sys.path to allow imports from src
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +37,7 @@ def get_folder_list():
     for name in os.listdir(base_dir):
         full_path = os.path.join(base_dir, name)
         if os.path.isdir(full_path):
-            if os.path.exists(os.path.join(full_path, "personalive")):
+            if os.path.exists(os.path.join(full_path, "pretrained_weights")):
                 candidates.append(name)
     
     if "persona_live" not in candidates:
@@ -44,6 +45,55 @@ def get_folder_list():
         
     return sorted(candidates)
 
+def download_models_if_missing(root_dir):
+    """Auto-download models from HuggingFace if they don't exist."""
+    base_model_path = os.path.join(root_dir, "sd-image-variations-diffusers")
+    vae_path = os.path.join(root_dir, "sd-vae-ft-mse")
+    personalive_path = os.path.join(root_dir, "persona_live")
+    
+    models_to_download = [
+        {
+            "repo_id": "lambdalabs/sd-image-variations-diffusers",
+            "local_dir": base_model_path,
+            "name": "Base Model (sd-image-variations-diffusers)"
+        },
+        {
+            "repo_id": "stabilityai/sd-vae-ft-mse",
+            "local_dir": vae_path,
+            "name": "VAE (sd-vae-ft-mse)"
+        },
+        {
+            "repo_id": "huaichang/PersonaLive",
+            "local_dir": personalive_path,
+            "name": "PersonaLive Weights"
+        }
+    ]
+    
+    for model_info in models_to_download:
+        if not os.path.exists(model_info["local_dir"]) or not os.listdir(model_info["local_dir"]):
+            print(f"\n{'='*60}")
+            print(f"Downloading {model_info['name']}...")
+            print(f"From: {model_info['repo_id']}")
+            print(f"To: {model_info['local_dir']}")
+            print(f"This may take a while (several GB)...")
+            print(f"{'='*60}\n")
+            
+            try:
+                snapshot_download(
+                    repo_id=model_info["repo_id"],
+                    local_dir=model_info["local_dir"],
+                    local_dir_use_symlinks=False,
+                    resume_download=True,
+                )
+                print(f"\n✓ Successfully downloaded {model_info['name']}\n")
+            except Exception as e:
+                raise RuntimeError(
+                    f"Failed to download {model_info['name']} from {model_info['repo_id']}: {e}\n"
+                    f"Please check your internet connection or download manually."
+                )
+        else:
+            print(f"✓ {model_info['name']} already exists at {model_info['local_dir']}")
+    # Move persoanlize 
 class PersonaLiveCheckpointLoader:
     @classmethod
     def INPUT_TYPES(s):
@@ -64,19 +114,20 @@ class PersonaLiveCheckpointLoader:
         
         root_dir = os.path.join(folder_paths.models_dir, model_dir)
         
+        # Auto-download models if missing
+        print(f"\nChecking PersonaLive models in {root_dir}...")
+        download_models_if_missing(root_dir)
+        
         base_model_path = os.path.join(root_dir, "sd-image-variations-diffusers")
         vae_path = os.path.join(root_dir, "sd-vae-ft-mse")
-        personalive_path = os.path.join(root_dir, "personalive")
+        personalive_path = os.path.join(root_dir, "persona_live")
         
         image_encoder_path = os.path.join(base_model_path, "image_encoder")
 
-        print(f"Loading PersonaLive models from {root_dir}:")
+        print(f"\nLoading PersonaLive models from {root_dir}:")
         print(f"  Base Model: {base_model_path}")
         print(f"  VAE: {vae_path}")
         print(f"  Weights: {personalive_path}")
-        
-        if not os.path.exists(personalive_path):
-            raise FileNotFoundError(f"Could not find 'personalive' folder in {root_dir}. Please ensure structure is correct.")
 
         try:
             vae_model = AutoencoderKL.from_pretrained(vae_path).to(device, dtype=weight_dtype)
@@ -148,7 +199,7 @@ class PersonaLiveCheckpointLoader:
         print(f"Loading weights from {personalive_path}")
         
         def load_w(model, filename, strict=True):
-             p = os.path.join(personalive_path, filename)
+             p = os.path.join(personalive_path, "pretrained_weights", "personalive", filename)
              if os.path.exists(p):
                  print(f"Loading {filename} from {p}")
                  model.load_state_dict(torch.load(p, map_location="cpu"), strict=strict)
