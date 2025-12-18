@@ -29,7 +29,7 @@ Documentation = "https://github.com/okdalto/ComfyUI-PersonaLive/wiki"
 "Bug Tracker" = "https://github.com/okdalto/ComfyUI-PersonaLive/issues"
 
 [tool.comfy]
-PublisherId = "okdalto"
+PublisherId = "seonghyeon"
 DisplayName = "ComfyUI-PersonaLive"
 Icon = ""
 includes = [] 
